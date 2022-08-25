@@ -1,0 +1,57 @@
+
+<div class="table-container">
+  <h1 class="heading">Maquinas de {{nombre}}</h1>
+  <table class="Table">
+    <thead>
+      <tr>
+        <th class="more"></th>
+        <th>Id de Maquina</th>
+        <th>Nombre de Maquina</th>
+        <th>Estado</th>
+        <th>Producción Total</th>
+      </tr>
+    </thead>
+    <tbody  *ngFor="let maquina of maquinas; index as i">
+
+        <tr>
+          <td class="tabla-maquinas"><a href="" class="btn" data-bs-toggle="collapse" href="#{{maquina.id_m}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class='bx bx-chevron-right' ></i></a></td>
+          <td class="tabla-maquinas">{{maquina.id_m}}</td>
+          <td class="tabla-maquinas">{{maquina.nombre}}</td>
+          <ng-container *ngIf="maquina.estado; else elseTemplate">
+            <td class="estadoA tabla-maquinas">Activo</td>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <td class="estadoI tabla-maquinas">Inactivo</td>
+          </ng-template>
+          <td class="tabla-maquinas">{{produccionTot[i]}}</td>
+        </tr>
+        <tr class="fila2"></tr>
+        <tr class="collapse" id="{{maquina.id_m}}">
+          <td colspan="4" class="process-table">
+            <table class="table tabla-procesos">
+              <thead>
+                <tr>
+                  <th scope="col">id de proceso</th>
+                  <th scope="col">nombre del proceso</th>
+                  <th scope="col">produccion</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let proceso of procesos; let j=index;">
+                  <ng-container *ngIf="proceso.id_m==maquina.id_m">
+                    <td>{{proceso.id_p}}</td>
+                    <td>{{proceso.nombre}}</td>
+                    <td>{{proceso.produccion}}</td>
+                  </ng-container>
+                  </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr class="fila"></tr>
+    </tbody>
+  </table>
+</div>
+
+

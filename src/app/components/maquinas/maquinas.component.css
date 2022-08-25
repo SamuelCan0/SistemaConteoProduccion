@@ -1,0 +1,119 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.table-container{
+  padding: 0 10%;
+  margin: 40px auto 0;
+}
+
+.heading{
+  font-size: 40;
+  text-align: center;
+  margin: 40px;
+}
+
+.Table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Table thead{
+  background: var(--primary-color);
+}
+
+.Table thead .more{
+  width: 5px;
+}
+
+.Table thead tr th{
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  color: var(--sidebar-color);
+  opacity: 1;
+  padding: 8px;
+  vertical-align: top;
+  border: 1px solid var(--primary-color-light);
+  text-align: center;
+}
+
+
+
+.Table tbody tr td .btn{
+  text-decoration: none;
+  line-height: 15px;
+  display: flexbox;
+  text-align: center;
+  border-radius: 8px;
+  color: var(--primary-color);
+}
+
+.Table tbody tr td .btn i{
+  font-size: 25px;
+
+}
+
+
+.Table tbody tr .tabla-maquinas{
+  font-size: 14px;
+  letter-spacing: 0.35px;
+  font-weight: normal;
+  color: var(--text-color);
+  background-color: var(--sidebar-color);
+  padding: 4px;
+  border: 1px solid var(--body-color);
+  text-align: center;
+}
+
+.Table tbody .fila{
+  margin-bottom: 18px;
+}
+
+.Table tbody .fila2{
+  margin-bottom: 5px;
+}
+
+.Table tbody tr .estadoA{
+  background: rgb(2, 180, 2);
+  color: var(--sidebar-color);
+}
+
+.Table tbody tr .estadoI{
+  background: gray;
+  color: var(--sidebar-color);
+}
+
+.tabla-procesos tbody tr td{
+  font-size: 14px;
+  letter-spacing: 0.35px;
+  font-weight: normal;
+  color: var(--text-color);
+  background-color: var(--sidebar-color);
+  padding: 4px;
+  border: 1px solid var(--body-color);
+  text-align: center;
+}
+
+.fila{
+  display: block;
+  width: 100%;
+}
+
+.fila2{
+  display: block;
+  width: 100%;
+}
+
+
+
+
+.process-table table{
+  margin-left: 35px;
+}
+
+
+
+

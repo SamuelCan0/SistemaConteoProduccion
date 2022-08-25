@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body{
+  height: 100vh;
+  background: var(--body-color);
+}
+
+:root{
+  /*---colors---*/
+  --body-color:#E4E9F7;
+  --sidebar-color:#FFF;
+  --primary-color:#695CFE;
+  --primary-color-light:#d2ceff;
+  --toggle-color:rgb(179, 179, 179);
+  --text-color:#707070;
+
+
+  /*---transition---*/
+  --trasn-02: all 0.2s ease;
+  --trasn-03: all 0.3s ease;
+  --trasn-04: all 0.4s ease;
+  --trasn-05: all 0.5s ease;
+
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

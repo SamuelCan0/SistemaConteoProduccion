@@ -1,0 +1,92 @@
+.titulo-principal{
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
+
+.cargar{
+  width: 100%;
+  height: 80%;
+}
+
+.spiner{
+  margin-top: 15%;
+}
+
+.busqueda{
+  display: flex;
+  justify-content: end;
+  padding-right: 50px;
+  width: 100%;
+}
+
+.busqueda .btn-buscar{
+  color: white;
+  border-radius: 50%;
+  width: fit-content;
+  display: flex;
+  width: 35px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(21, 67, 96);
+  border-color: rgb(21, 67, 96);
+}
+
+.form-button{
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(21, 67, 96);
+  border-color: rgb(21, 67, 96);
+}
+
+.content{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content .graficas{
+  width: 100%;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+}
+
+.content .graficas .ps .titulo-grafica,
+.content .graficas .pm .titulo-grafica,
+.content .graficas .pa .titulo-grafica{
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+
+
+.content .graficas .ps .grafica,
+.content .graficas .pm .grafica,
+.content .graficas .pa .grafica{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 25px;
+}
+
+.pie{
+  padding-top: 50px;
+}
+
+
+@media screen and (max-width: 560px) {
+  .content .graficas{
+    padding-right: 10px;
+    padding-left: 5px;
+  }
+
+  .busqueda{
+    padding-right: 15px;
+  }
+
+}

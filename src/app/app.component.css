@@ -1,0 +1,8 @@
+.router{
+  position: relative;
+  height: 100vh;
+  margin-left: 100px;
+  width: calc(100%-88px);
+  background: var(--body-color);
+
+}

@@ -1,0 +1,69 @@
+<div class="div">
+  <nav class="sidebar close" #toggle>
+    <header>
+      <div class="image-text">
+        <span class="image">
+          <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQFwIzSg_eUCTg/company-logo_200_200/0/1519911544816?e=2147483647&v=beta&t=O-Kbbq0iX9GtgWj9Bf4AanNTSGxEOyqXuMy27xxFnLA">
+        </span>
+        <div class="text header-text">
+          <span class="name">Conteo Productos</span>
+        </div>
+      </div>
+      <i class='bx bx-chevron-right toggle' (click)="ocultar()"></i>
+    </header>
+    <div class="menu-bar">
+      <div class="menu">
+        <!--<li class="search-box" >
+          <i class='bx bx-search-alt icon' (click)="ocultar()"></i>
+          <input type="search" placeholder="search">
+        </li>-->
+        <ul class="menu-links">
+          <li class="nav-link">
+            <a href="dashboard">
+              <i class='bx bx-laptop icon'></i>
+              <span class="text nav-text">Maquinas</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="reports">
+              <i class='bx bx-line-chart icon'></i>
+              <span class="text nav-text">Reporte del Dia</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="history">
+              <i class='bx bx-calendar icon' ></i>
+              <span class="text nav-text">Historial</span>
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="help">
+              <i class='bx bx-help-circle icon'></i>
+              <span class="text nav-text">Ayuda</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="bottom-content">
+        <li class="">
+          <a href="#">
+            <i class='bx bx-log-out icon'></i>
+            <span class="text nav-text">Salir</span>
+          </a>
+        </li>
+        <!--<li class="mode">
+          <div class="moon-sun">
+            <i class="bx bx-sun icon sun"></i>
+            <i class="bx bx-moon icon moon"></i>
+          </div>
+          <span class="mode-text text">Dark Mode</span>
+          <div class="toggle-switch" #modeSwitch (click)="darkmode()">
+            <span class="switch"></span>
+          </div>
+        </li>-->
+      </div>
+    </div>
+  </nav>
+</div>
+
+

@@ -1,0 +1,30 @@
+<!--
+<div class="cards-area">
+  <div class="titulo1">
+    <h1>Areas</h1>
+  </div>
+  <div class="container">
+    <div class="card" *ngFor="let area of areas" [routerLink]="['/maquinas/',area.id,area.nombre]">
+      <a>
+        <div class="content">
+          <div class="contentBx">
+            <h3>{{area.nombre}}</h3>
+          </div>
+        </div>
+      </a>
+  </div>
+</div>
+-->
+
+<div class="body">
+  <div class="services">
+    <h1>Areas</h1>
+    <div class="cen">
+      <div class="service" *ngFor="let area of areas; index as i" [routerLink]="['/maquinas/',area.id,area.nombre]">
+        <img src="assets/img/deposito.png" width="50px">
+        <h2>{{area.nombre}}</h2>
+        <p>N° de Maquinas: {{numMaq[i].length}}</p>
+      </div>
+    </div>
+  </div>
+</div>

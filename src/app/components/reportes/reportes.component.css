@@ -1,0 +1,78 @@
+h1{
+  padding-top: 25px;
+}
+
+.rounded-corners {
+  border-radius: 50%;
+  background-color: #a61e4d;
+  color: #efefef;
+  border: none;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  font-size: 25px;
+  margin-left: 15px;
+}
+
+.cargar{
+  width: 100%;
+  height: 80%;
+}
+
+.spiner{
+  margin-top: 20%;
+}
+
+.tablas{
+  width: 100%;
+  height: 80%;
+  padding-top: 20px;
+  justify-content: center;
+}
+
+.grafica{
+  margin-left: 15px;
+  margin-top: 20px;
+  width: 100%;
+
+}
+
+
+.actions{
+  display: flex;
+  justify-content: end;
+  padding-right: 15px;
+  width: 100%;
+}
+
+.actions .btn-refresh{
+  color: white;
+  border-radius: 50%;
+  width: fit-content;
+  display: flex;
+  width: 35px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(21, 67, 96);
+  border-color: rgb(21, 67, 96);
+}
+
+.titulo-grafica{
+  font-size: 18px;
+}
+
+.actions button{
+  width: min-content;
+}
+
+.pie{
+  width: 100%;
+  margin-top: 50px;
+}
+
+
+
+
+
+
