@@ -1,0 +1,143 @@
+.body{
+  min-height: 100vh;
+  justify-content: center;
+  display: flex;
+}
+
+.content{
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  margin-top: 50px;
+  margin-bottom: 100px;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.3));
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom: 0px;
+}
+
+.title{
+  margin-top: 20px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.question-answers{
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.content-accordion{
+  margin-top: 35px;
+  margin-right: 50px;
+  z-index: 1;
+}
+
+.question{
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordion{
+  position: relative;
+  width: 350px;
+  margin-left: 40px;
+}
+
+.accordion-img{
+  position: relative;
+  width: 320px;
+}
+
+
+.title-question{
+  margin: 1.4rem 0rem;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+
+}
+
+.question-btn{
+  font-size: 1.5rem;
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  color: white;
+}
+
+.up-icon{
+  display: none;
+}
+
+
+.answer{
+  font-size: 15px;
+  line-height: 1.5;
+  display: none;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
+
+.answer h3{
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+
+.solutions-list{
+  line-height: 2;
+}
+
+.icono{
+  font-size: 20px;
+}
+
+.show-text .answer{
+  display: block;
+  transition: all 0.9s ease;
+}
+
+.show-text .up-icon{
+  display: inline;
+}
+
+.show-text .down-icon{
+  display: none;
+}
+
+
+@media screen and (min-width:992px){
+  .accordion{
+    width: 920px;
+    height: 0;
+    display: flex;
+  }
+
+  .accordion-img{
+    position: relative;
+    width: 420px;
+    top: 38px;
+  }
+
+  .question-answer{
+    width: 380px;
+  }
+
+  .content-accordion{
+    margin-top: 50px;
+  }
+
+  .title{
+    margin-top: 50px;
+    font-size: 3rem;
+  }
+
+}
+
+
+

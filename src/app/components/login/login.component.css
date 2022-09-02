@@ -1,0 +1,98 @@
+
+
+
+.form-main{
+  min-height: 100vh;
+  padding: 40px,15px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-content{
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+}
+
+.form-content .box{
+  border-color: var(--blue);
+  border: 1px solid var(--border-color);
+  padding: 40px 50px;
+  border-radius: 20px;
+  backdrop-filter: var(--blur);
+}
+
+.form-content h3{
+  font-size: 28px;
+  text-align: center;
+  line-height: 1.2;
+  color: var(--text-white);
+  font-weight: 500;
+}
+
+.form-content form{
+  margin: 25px 0 20px;
+}
+
+.form-content .input-box{
+  margin: 25px;
+}
+
+.form-content .input-control{
+  display: block;
+  height: 45px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  color: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.form-content .input-control:focus{
+  outline: none;
+}
+
+.form-content .boton{
+  height: 45px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 25px;
+  user-select: none;
+  background: linear-gradient(to right, var(--blue), var(--green));
+  border: none;
+  color: var(--text-white);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.form-content .boton::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: background-color 0.5s ease;
+  z-index: -1;
+}
+
+.form-content .boton:hover::before{
+  background-color: var(--button-hover-color);
+}
+
+@media (max-width: 450px) {
+  .form-content{
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}

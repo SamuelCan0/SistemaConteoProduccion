@@ -1,13 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+@import "~angular-notifier/styles";
+
 body{
-  height: 100vh;
-  background: var(--body-color);
+  background: linear-gradient(173deg,rgba(2,0,.6,1)0%,var(--body-bg-color)75%,var(--green)100% );
+  color: white;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
+
+
+
+
 
 :root{
   /*---colors---*/
-  --body-color:#E4E9F7;
+  --body-color:var(--body-bg-color);
+  /*--body-color:#d0d2d8;*/
   --sidebar-color:#FFF;
   --primary-color:#695CFE;
   --primary-color-light:#d2ceff;
@@ -21,7 +31,23 @@ body{
   --trasn-04: all 0.4s ease;
   --trasn-05: all 0.5s ease;
 
+  /*---Login Colors---*/
+  --green: hsl(162,45%,56%);
+  --red: rgb(255, 97, 97);
+  --plomo: hsl(162,2%,56%);
+  --blue: hsl(220,85%,56%);
+  --violet: hsl(272,92%,32%);
+  --text-white: hsl(0,0%,100%);
+  --body-bg-color: rgb(23, 60, 78);
+  --glass-bg-color: hsla(0,0%,100%,0.05);
+  --border-color: hsla(0,0%,100%,0.25);
+  --blur: blur(10px);
+  --button-hover-color: hsla(0,0%,0%,0.3);
+  --clr: #222327;
+
+
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

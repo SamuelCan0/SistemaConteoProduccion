@@ -16,15 +16,13 @@
 </div>
 -->
 
-<div class="body">
   <div class="services">
     <h1>Areas</h1>
     <div class="cen">
-      <div class="service" *ngFor="let area of areas; index as i" [routerLink]="['/maquinas/',area.id,area.nombre]">
+      <div class="service" *ngFor="let area of areas; index as i" [routerLink]="['/maquinas/',area.id,area.nombre]" routerLinkActive="active">
         <img src="assets/img/deposito.png" width="50px">
         <h2>{{area.nombre}}</h2>
         <p>N° de Maquinas: {{numMaq[i].length}}</p>
       </div>
     </div>
   </div>
-</div>

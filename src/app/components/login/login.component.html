@@ -1,0 +1,31 @@
+
+  <notifier-container></notifier-container>
+  <section class="form-main">
+    <div class="form-content">
+      <div class="box">
+        <h3>Iniciar Sesión</h3>
+        <form #loginForm="ngForm" (ngSubmit)="loginProcess(loginForm.value)">
+          <div class="input-box">
+            <input
+                    type="email"
+                    autocomplete="off"
+                    name="email"
+                    placeholder="Correo Electronico"
+                    class="input-control"
+                    ngModel
+                  >
+          </div>
+          <div class="input-box">
+            <input
+                    type="password"
+                    name="password"
+                    placeholder="Contraseña"
+                    class="input-control"
+                    ngModel
+                  >
+          </div>
+          <button type="submit" class="boton">Iniciar Sesión</button>
+        </form>
+      </div>
+    </div>
+  </section>

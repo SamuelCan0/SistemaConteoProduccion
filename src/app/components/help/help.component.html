@@ -1,7 +1,92 @@
-<form #userName="ngForm" (ngSubmit)="onClickSubmit(userName.value)">
-  <br>
-  <input type="date" name="username"  ngModel class="form-control">
-  <br/>
-  <br/>
-  <input type="submit" value="submit" class="form-control">
-</form>
+<div class="body">
+  <div class="content">
+    <h1 class="title">
+      Ayuda
+    </h1>
+    <main class="accordion">
+      <div class="fqa-img">
+        <img src="assets/img/technical-support.png" alt="" class="accordion-img">
+      </div>
+      <div class="content-accordion">
+        <div class="question-answers">
+          <div class="question">
+            <h3 class="title-question">
+              ¿no se visualizan los datos?
+            </h3>
+            <button class="question-btn">
+              <span class="up-icon">
+                <i class='bx bx-chevron-up'></i>
+              </span>
+              <span class="down-icon">
+                <i class='bx bx-chevron-down'></i>
+              </span>
+            </button>
+          </div>
+          <div class="answer">
+          <h3>Soluciones</h3>
+          <ol class="solutions-list">
+            <li>Revisa tu conexión a internet. <i class='bx bx-wifi-off icono'></i></li>
+            <li>Cargar los datos:
+              <ul>
+                <li>Dirígete a la gráfica. <i class='bx bx-line-chart icono'></i></li>
+                <li>Haz clic en el botón de recargar  <i class='bx bx-refresh icono' ></i>  para actualizar los datos.
+                </li>
+              </ul>
+            </li>
+            <li>Si no se soluciono el problema comuníquese con soporte.</li>
+          </ol>
+          </div>
+        </div>
+        <div class="question-answers">
+          <div class="question">
+            <h3 class="title-question">
+              ¿Cómo buscar una fecha específica?
+            </h3>
+            <button class="question-btn">
+              <span class="up-icon">
+                <i class='bx bx-chevron-up'></i>
+              </span>
+              <span class="down-icon">
+                <i class='bx bx-chevron-down'></i>
+              </span>
+            </button>
+          </div>
+          <div class="answer">
+            <h3>Solucion</h3>
+            <ol class="solutions-list">
+              <li>Dirígete al apartado de historial. <i class='bx bx-calendar icono' ></i></li>
+              <li>Haz clic en el botón de buscar.  <i class='bx bx-search icono'></i></li>
+              <li>selecciona la fecha deseada y haz clic en el botón de buscar.</li>
+              <li>listo aparecerá la producción del día.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="question-answers">
+          <div class="question">
+            <h3 class="title-question">
+              ¿Cómo ver los procesos de una máquina?
+            </h3>
+            <button class="question-btn">
+              <span class="up-icon">
+                <i class='bx bx-chevron-up'></i>
+              </span>
+              <span class="down-icon">
+                <i class='bx bx-chevron-down'></i>
+              </span>
+            </button>
+          </div>
+          <div class="answer">
+            <h3>Solucion</h3>
+            <ol>
+              <li>Dirígete al apartado de máquinas. <i class='bx bx-laptop icono'></i></li>
+              <li>Seleccione el área que desea consultar.</li>
+              <li>haz clic en el botón de expandir <i class='bx bx-plus icono'></i> para mostrar los procesos de la máquina.</li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+

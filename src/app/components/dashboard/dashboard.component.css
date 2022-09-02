@@ -1,7 +1,4 @@
-.body{
-  margin: 0;
-  padding: 0;
-}
+
 
 .services{
   text-align: center;
@@ -17,7 +14,7 @@
 }
 
 .cen{
-  max-width: 1200px;
+  max-width: 100%;
   margin: auto;
   overflow: hidden;
   padding: 20px;
@@ -26,19 +23,18 @@
 .service{
   display: inline-block;
   width: calc(100% / 3);
-  margin: 0 -2px;
   padding: 20px;
   box-sizing: border-box;
   cursor: pointer;
   transition: 0.4s;
   border-radius: 15px;
-  margin: 20px;
 }
 
 .service:hover{
   background: var(--primary-color);
   color: white;
 }
+
 
 .service img{
   width: 60px;
@@ -53,7 +49,7 @@
 }
 
 .service p{
-  color: rgb(66, 66, 66);
+  color: rgb(167, 167, 167);
   font-size: 15px;
   font-weight: 500;
 }

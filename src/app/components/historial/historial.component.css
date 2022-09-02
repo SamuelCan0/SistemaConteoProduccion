@@ -5,6 +5,41 @@
   padding-bottom: 25px;
 }
 
+.body{
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.body::after,
+.body::before{
+  content: '';
+  position: fixed;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(150px);
+  opacity: 0.5;
+}
+
+.body::before{
+  background-color: var(--blue);
+  left: 0;
+  bottom: 0;
+  transform: translate(-50%);
+}
+
+.body::after{
+  background-color: var(--violet);
+  right: 0;
+  top: 0;
+  transform: translate(50%);
+}
+
 
 .cargar{
   width: 100%;
@@ -32,7 +67,12 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(21, 67, 96);
-  border-color: rgb(21, 67, 96);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.buscar{
+  color: black;
 }
 
 .form-button{
@@ -40,6 +80,7 @@
   color: white;
   background-color: rgb(21, 67, 96);
   border-color: rgb(21, 67, 96);
+
 }
 
 .content{
@@ -88,5 +129,11 @@
   .busqueda{
     padding-right: 15px;
   }
+
+  .pie{
+    margin-top: 75px;
+  }
+
+
 
 }

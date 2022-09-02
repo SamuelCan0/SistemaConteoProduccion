@@ -1,56 +1,29 @@
- <h1 class="text-center">Produccion del Dia</h1>
- <ng-container *ngIf="isloadT; else elseTemplate">
-  <div class="text-center cargar">
-    <div class="spinner-border spiner" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div>
-  </ng-container>
-  <ng-template #elseTemplate >
-      <div class="actions">
-        <button class="btn-refresh btn" type="button" (click)="refreshData()"><i class='bx bx-refresh' ></i></button>
-      </div>
-    <div class="row tablas" id="graficas">
-      <div class="col-md-6">
-        <div class="grafica" id="grafica1">
-          <h3 class="titulo-grafica text-center">Produccion Troquelados</h3>
-          <canvas baseChart
-            [type]="'bar'"
-            [legend]="true"
-            [datasets]="chartDataT"
-            [labels]="chartLabelsT"
-            >
-          </canvas>
-        </div>
-        <hr>
-      </div>
-      <div class="col-md-6">
-        <div class="grafica">
-          <h3 class="titulo-grafica text-center">Produccion Preformados</h3>
-          <canvas baseChart
-            [type]="'bar'"
-            [legend]="true"
-            [datasets]="chartDataP"
-            [labels]="chartLabelsP"
-            >
-          </canvas>
-        </div>
-        <hr>
-      </div>
-      <div class="col-md-6">
-        <div class="grafica">
-          <h3 class="titulo-grafica text-center">Produccion Preformados</h3>
-          <canvas baseChart
-            [type]="'bar'"
-            [legend]="true"
-            [datasets]="chartDataP"
-            [labels]="chartLabelsP"
-            >
-          </canvas>
-        </div>
-        <hr>
 
-        <div class="pie"></div>
-      </div>
-    </div>
-</ng-template>
+  <h1 class="text-center">Producción del Dia</h1>
+  <ng-container *ngIf="isload; else elseTemplate">
+   <div class="text-center cargar">
+     <div class="spinner-border spiner" role="status">
+       <span class="visually-hidden">Loading...</span>
+     </div>
+   </div>
+   </ng-container>
+   <ng-template #elseTemplate >
+       <div class="actions">
+         <button class="btn-refresh btn" type="button" (click)="refreshData()"><i class='bx bx-refresh' ></i></button>
+       </div>
+     <div class="row tablas" id="graficas">
+       <div class="col-md-6">
+         <div class="grafica" id="grafica1">
+           <h3 class="titulo-grafica text-center">Producción de Argollas</h3>
+           <canvas baseChart
+             [type]="'bar'"
+             [legend]="true"
+             [datasets]="chartDataA"
+             [labels]="chartLabelsA"
+             >
+           </canvas>
+         </div>
+         <hr>
+       </div>
+     </div>
+ </ng-template>

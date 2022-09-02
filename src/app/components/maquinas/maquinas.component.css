@@ -1,10 +1,7 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 .table-container{
+  z-index: 1;
   padding: 0 10%;
   margin: 40px auto 0;
 }
@@ -13,107 +10,100 @@
   font-size: 40;
   text-align: center;
   margin: 40px;
+  z-index: 1;
 }
 
-.Table{
+.tabla-maquinas{
   width: 100%;
+  text-align: center;
   border-collapse: collapse;
-}
-
-.Table thead{
-  background: var(--primary-color);
-}
-
-.Table thead .more{
-  width: 5px;
-}
-
-.Table thead tr th{
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.35px;
-  color: var(--sidebar-color);
-  opacity: 1;
-  padding: 8px;
-  vertical-align: top;
-  border: 1px solid var(--primary-color-light);
-  text-align: center;
+  border-radius: 1em;
+  overflow: hidden;
+  z-index: 1;
 }
 
 
+.tabla-maquinas .tabla-head{
+  width: 100%;
+  background: linear-gradient(to right, var(--blue), var(--green));
+  font-size: 15px;
+  z-index: 1;
 
-.Table tbody tr td .btn{
-  text-decoration: none;
-  line-height: 15px;
-  display: flexbox;
-  text-align: center;
-  border-radius: 8px;
-  color: var(--primary-color);
 }
 
-.Table tbody tr td .btn i{
+.tabla-maquinas .tabla-head td{
+  padding: 5px;
+  font-weight: 500;
+  font-style: oblique;
+  z-index: 1;
+}
+
+
+
+
+.tabla-maquinas .tabla-head .more{
+  width: 50px;
+  z-index: 1;
+}
+
+.body-tabla{
+  color: black;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 1em;
+  background: rgb(233, 233, 233);
+  border-bottom: 2px solid white;
+}
+
+.body-tabla td{
+  padding: 2px;
+  border-right: 2px solid white;
+}
+
+.body-tabla .td-more{
   font-size: 25px;
-
 }
 
-
-.Table tbody tr .tabla-maquinas{
-  font-size: 14px;
-  letter-spacing: 0.35px;
-  font-weight: normal;
-  color: var(--text-color);
-  background-color: var(--sidebar-color);
-  padding: 4px;
-  border: 1px solid var(--body-color);
-  text-align: center;
-}
-
-.Table tbody .fila{
-  margin-bottom: 18px;
-}
-
-.Table tbody .fila2{
-  margin-bottom: 5px;
-}
-
-.Table tbody tr .estadoA{
-  background: rgb(2, 180, 2);
-  color: var(--sidebar-color);
-}
-
-.Table tbody tr .estadoI{
-  background: gray;
-  color: var(--sidebar-color);
-}
-
-.tabla-procesos tbody tr td{
-  font-size: 14px;
-  letter-spacing: 0.35px;
-  font-weight: normal;
-  color: var(--text-color);
-  background-color: var(--sidebar-color);
-  padding: 4px;
-  border: 1px solid var(--body-color);
-  text-align: center;
-}
-
-.fila{
-  display: block;
+.body-tabla .td-more a{
+  color: var(--blue);
   width: 100%;
+  height: 100%;
+  text-decoration: none;
 }
 
-.fila2{
-  display: block;
-  width: 100%;
+.body-tabla .td-state-a,
+.body-tabla .td-state-i{
+  color: white;
+  text-transform: uppercase;
 }
 
-
-
-
-.process-table table{
-  margin-left: 35px;
+.body-tabla .td-prod,
+.body-tabla .td-prod-p{
+  border-right: 0px;
 }
 
+.body-tabla .td-state-i{
+  background-color: var(--red);
+}
 
+.body-tabla .td-state-a{
+  background-color: var(--green);
+}
 
+.table-process-content{
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-bottom: 10px;
+}
 
+@media (max-width: 550px){
+  .table-container{
+    padding: 10px;
+  }
+
+  .table-process-content{
+    padding-top: 10px;
+    padding-left: 8px;
+    padding-bottom: 10px;
+  }
+}

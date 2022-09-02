@@ -15,27 +15,44 @@ export class DashboardComponent implements OnInit {
 
   constructor(private as:AreasService) {}
 
-  ngOnInit(): void {
-    this.obtenerAreas();
+  async ngOnInit(): Promise<void> {
+    await this.obtenerAreas();
   }
 
-  obtenerAreas():void{
+  async obtenerAreas():Promise<void>{
     this.as.getAreas().subscribe(data=>{
     this.areas=[];
     this.numMaq=[];
+
       data.forEach((element:any) => {
         this.areas.push({
           id:element.payload.doc.id,
           ...element.payload.doc.data()
         });
-        this.numMaq.push([
-          element.payload.doc.data()['maquinas']
-        ]);
+        let auxArr=[];
+        for (let i = 1; i < 100; i++) {
+          if (element.payload.doc.data()['maquinas']['m'+i]==null) {
+            break;
+          } else {
+            auxArr.push([
+              element.payload.doc.data()['maquinas']['m'+i]
+            ]);
+          }
+        }
+        this.numMaq.push(auxArr);
       });
     });
+    await this.delay(2000);
     console.log(this.numMaq);
 
   }
+
+
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
 }
 
 
