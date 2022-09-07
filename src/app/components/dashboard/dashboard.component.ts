@@ -20,22 +20,23 @@ export class DashboardComponent implements OnInit {
   }
 
   async obtenerAreas():Promise<void>{
-    this.as.getAreas().subscribe(data=>{
+    (await this.as.getAreas()).subscribe(data=>{
     this.areas=[];
     this.numMaq=[];
 
       data.forEach((element:any) => {
+
         this.areas.push({
-          id:element.payload.doc.id,
-          ...element.payload.doc.data()
+          id:element.id,
+          ...element.data()
         });
         let auxArr=[];
         for (let i = 1; i < 100; i++) {
-          if (element.payload.doc.data()['maquinas']['m'+i]==null) {
+          if (element.data()['maquinas']['m'+i]==null) {
             break;
           } else {
             auxArr.push([
-              element.payload.doc.data()['maquinas']['m'+i]
+              element.data()['maquinas']['m'+i]
             ]);
           }
         }

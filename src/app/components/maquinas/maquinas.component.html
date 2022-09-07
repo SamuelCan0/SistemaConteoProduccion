@@ -1,53 +1,66 @@
 
   <div class="table-container">
     <h1 class="heading">Maquinas de {{nombre}}</h1>
-    <table class="tabla-maquinas">
-      <thead>
-        <tr class="tabla-head">
-          <td class="more"></td>
-          <td>Id de Maquina</td>
-          <td>Nombre de Maquina</td>
-          <td>Estado</td>
-          <td>Producción Total</td>
-        </tr>
-      </thead>
-      <tbody  *ngFor="let maquina of maquinas; index as i">
-          <tr class="body-tabla">
-            <td class="td-more"><a href="" class="" data-bs-toggle="collapse" href="#{{maquina.id_m}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class='bx bx-plus'></i></a></td>
-            <td class="td-id-m">{{maquina.id_m}}</td>
-            <td class="">{{maquina.nombre}}</td>
-            <ng-container *ngIf="maquina.estado; else elseTemplate">
-              <td class="td-state-a">Activo</td>
-            </ng-container>
-            <ng-template #elseTemplate>
-              <td class="td-state-i">Inactivo</td>
-            </ng-template>
-            <td class="td-prod">{{produccionTot[i]}}</td>
+    <ng-container *ngIf="!isload; else elseTemplate">
+      <div class="actions">
+        <button class="btn-refresh btn" type="button" (click)="recargar()"><i class='bx bx-refresh' ></i></button>
+      </div>
+      <table class="tabla-maquinas">
+        <thead>
+          <tr class="tabla-head">
+            <td class="more"></td>
+            <td>Id de Maquina</td>
+            <td>Nombre de Maquina</td>
+            <td>Estado</td>
+            <td>Producción Total</td>
           </tr>
-          <tr class="collapse" id="{{maquina.id_m}}">
-            <td colspan="5" class="table-process-content">
-              <table class="tabla-maquinas">
-                <thead>
-                  <tr class="tabla-head">
-                    <td scope="col">id de proceso</td>
-                    <td scope="col">nombre del proceso</td>
-                    <td scope="col">produccion</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let proceso of procesos; let j=index;" class="body-tabla">
-                    <ng-container *ngIf="proceso.id_m==maquina.id_m">
-                      <td class="td-id-p">{{proceso.id_p}}</td>
-                      <td class="td-name-p">{{proceso.nombre}}</td>
-                      <td class="td-prod-p">{{proceso.produccion}}</td>
-                    </ng-container>
+        </thead>
+        <tbody  *ngFor="let maquina of maquinas; index as i">
+            <tr class="body-tabla">
+              <td class="td-more"><a href="" class="" data-bs-toggle="collapse" href="#{{maquina.id_m}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class='bx bx-plus'></i></a></td>
+              <td class="td-id-m">{{maquina.id_m}}</td>
+              <td class="">{{maquina.nombre}}</td>
+              <ng-container *ngIf="maquina.estado; else elseTemplate">
+                <td class="td-state-a">Activo</td>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <td class="td-state-i">Inactivo</td>
+              </ng-template>
+              <td class="td-prod">{{produccionTot[i]}}</td>
+            </tr>
+            <tr class="collapse" id="{{maquina.id_m}}">
+              <td colspan="5" class="table-process-content">
+                <table class="tabla-maquinas">
+                  <thead>
+                    <tr class="tabla-head">
+                      <td scope="col">id de proceso</td>
+                      <td scope="col">nombre del proceso</td>
+                      <td scope="col">produccion</td>
                     </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let proceso of procesos; let j=index;" class="body-tabla">
+                      <ng-container *ngIf="proceso.id_m==maquina.id_m">
+                        <td class="td-id-p">{{proceso.id_p}}</td>
+                        <td class="td-name-p">{{proceso.nombre}}</td>
+                        <td class="td-prod-p">{{proceso.produccion}}</td>
+                      </ng-container>
+                      </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <div class="text-center cargar">
+        <div class="spinner-border spiner" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </ng-template>
+
   </div>
 
 

@@ -9,6 +9,7 @@ import { MaquinasService } from 'src/app/services/maquinas.service';
 })
 export class MaquinasComponent implements OnInit {
 
+  isload=true;
   id:string|null;
   nombre:string|null;
   maquinas:any[]=[];
@@ -22,29 +23,39 @@ export class MaquinasComponent implements OnInit {
     this.nombre=aRoute.snapshot.paramMap.get('nombre');
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.getMaquinas();
+    await this.delay(1000);
+    this.isload=false;
+  }
 
-    this.getMaquinas();
+  async recargar(){
+    this.isload=true;
+    await this.getMaquinas();
+    await this.delay(1000);
+    this.isload=false;
   }
 
   async getMaquinas():Promise<void>{
     if(this.id!=null){
       (await this.ms.getMaquinas(this.id)).subscribe(data=>{
+        console.log(data);
+
         this.produccionTot=[];
         this.procesos=[];
         this.maquinas=[];
         for (let j = 1; j < 1000; j++) {
           let suma=0;
-          if (data.payload.data()['maquinas']['m'+j]==null) {
+          if (data.data()['maquinas']['m'+j]==null) {
             break;
           } else {
-            this.maquinas.push(data.payload.data()['maquinas']['m'+j]);
+            this.maquinas.push(data.data()['maquinas']['m'+j]);
             for (let i = 0; i < 1000; i++) {
-              if (data.payload.data()['maquinas']['m'+j]['procesos']['p'+i]==null) {
+              if (data.data()['maquinas']['m'+j]['procesos']['p'+i]==null) {
                 break;
               } else {
-                this.procesos.push(data.payload.data()['maquinas']['m'+j]['procesos']['p'+i]);
-                suma+=data.payload.data()['maquinas']['m'+j]['procesos']['p'+i]['produccion'];
+                this.procesos.push(data.data()['maquinas']['m'+j]['procesos']['p'+i]);
+                suma+=data.data()['maquinas']['m'+j]['procesos']['p'+i]['produccion'];
               }
             }
           }
@@ -62,4 +73,9 @@ export class MaquinasComponent implements OnInit {
     }
   }
 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
 }
+

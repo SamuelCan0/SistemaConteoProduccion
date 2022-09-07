@@ -96,6 +96,28 @@
   padding-bottom: 10px;
 }
 
+.actions{
+  display: flex;
+  justify-content: end;
+  padding-right: 15px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.actions .btn-refresh{
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  width: fit-content;
+  display: flex;
+  width: 35px;
+  height: 35px;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  background-color: var(--green);
+  z-index: 1;
+}
+
 @media (max-width: 550px){
   .table-container{
     padding: 10px;

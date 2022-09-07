@@ -31,20 +31,20 @@ export class MaquinasService {
       for (let j = 0; j < 5; j++) {
         (await this.getMaquinasByIds(element, String(j))).subscribe(data=>{
         this.subArr=[];
-          if(data.payload.data()!=null){
+          if(data.data()!=null){
 
-          this.subArr.push(data.payload.data()['nombre']);
-          this.subArr.push(data.payload.data()['id_a']);
+          this.subArr.push(data.data()['nombre']);
+          this.subArr.push(data.data()['id_a']);
             for (let j = 1; j < 1000; j++) {
-              if (data.payload.data()['maquinas']['m'+j]==null) {
+              if (data.data()['maquinas']['m'+j]==null) {
                 break;
               } else {
                 let total=0;
                 for (let i = 0; i < 1000; i++) {
-                  if (data.payload.data()['maquinas']['m'+j]['procesos']['p'+i]==null) {
+                  if (data.data()['maquinas']['m'+j]['procesos']['p'+i]==null) {
                     break;
                   } else {
-                    total=total+Number(data.payload.data()['maquinas']['m'+j]['procesos']['p'+i]['produccion']);
+                    total=total+Number(data.data()['maquinas']['m'+j]['procesos']['p'+i]['produccion']);
                   }
                 }
                 this.subArr.push(total);
@@ -65,19 +65,19 @@ export class MaquinasService {
       for (let j = 0; j < 5; j++) {
         (await this.getMaquinasByIds(element, String(j))).subscribe(data=>{
         this.subArr=[];
-          if(data.payload.data()!=null){
-          this.subArr.push(data.payload.data()['nombre']);
-          this.subArr.push(data.payload.data()['id_a']);
+          if(data.data()!=null){
+          this.subArr.push(data.data()['nombre']);
+          this.subArr.push(data.data()['id_a']);
             for (let j = 1; j < 1000; j++) {
-              if (data.payload.data()['maquinas']['m'+j]==null) {
+              if (data.data()['maquinas']['m'+j]==null) {
                 break;
               } else {
                 let total=0;
                 for (let i = 0; i < 1000; i++) {
-                  if (data.payload.data()['maquinas']['m'+j]['procesos']['p'+i]==null) {
+                  if (data.data()['maquinas']['m'+j]['procesos']['p'+i]==null) {
                     break;
                   } else {
-                    total=total+Number(data.payload.data()['maquinas']['m'+j]['procesos']['p'+i]['produccion']);
+                    total=total+Number(data.data()['maquinas']['m'+j]['procesos']['p'+i]['produccion']);
                   }
                 }
                 this.subArr.push(total);
@@ -96,7 +96,7 @@ export class MaquinasService {
 
 
   async getMaquinasByIds(collection:string, idDoc:string): Promise<Observable<any>>{
-    return this.firestore.collection(collection).doc(idDoc).snapshotChanges();
+    return this.firestore.collection(collection).doc(idDoc).get();
   }
 
   async getMaquinas(id:string): Promise<Observable<any>>{
@@ -107,7 +107,7 @@ export class MaquinasService {
     //const fullPath=this.dbPath;
     const fullPath=this.dbPath+dia+mes+year;
     console.log(fullPath);
-    return this.firestore.collection(fullPath).doc(id).snapshotChanges();
+    return this.firestore.collection(fullPath).doc(id).get();
   }
 
 
@@ -115,10 +115,10 @@ export class MaquinasService {
       this.labels=[];
       (await this.getMaquinas(id)).subscribe(data=>{
         for (let j = 1; j < 1000; j++) {
-          if (data.payload.data()['maquinas']['m'+j]==null) {
+          if (data.data()['maquinas']['m'+j]==null) {
             break;
           } else {
-            this.labels.push(data.payload.data()['maquinas']['m'+j]['nombre']);
+            this.labels.push(data.data()['maquinas']['m'+j]['nombre']);
           }
         }
     });
@@ -129,15 +129,15 @@ export class MaquinasService {
     this.datos=[];
     (await this.getMaquinas(id)).subscribe(data=>{
       for (let j = 1; j < 1000; j++) {
-        if (data.payload.data()['maquinas']['m'+j]==null) {
+        if (data.data()['maquinas']['m'+j]==null) {
           break;
         } else {
           let total=0;
           for (let i = 0; i < 1000; i++) {
-            if (data.payload.data()['maquinas']['m'+j]['procesos']['p'+i]==null) {
+            if (data.data()['maquinas']['m'+j]['procesos']['p'+i]==null) {
               break;
             } else {
-              total=total+Number(data.payload.data()['maquinas']['m'+j]['procesos']['p'+i]['produccion']);
+              total=total+Number(data.data()['maquinas']['m'+j]['procesos']['p'+i]['produccion']);
             }
           }
           this.datos.push(total);
@@ -147,4 +147,8 @@ export class MaquinasService {
   return this.datos;
 
   }
+
+
+
+
 }

@@ -11,7 +11,7 @@ export class AreasService {
   constructor(private firestore:AngularFirestore) {
   }
 
-  getAreas(): Observable<any>{
+  async getAreas(): Promise<Observable<any>>{
     const hoy=new Date();
     const dia=hoy.getDate();
     const mes=hoy.getMonth()+1;
@@ -19,6 +19,6 @@ export class AreasService {
     //const fullPath=this.dbPath;
     const fullPath=this.dbPath+dia+mes+year;
     console.log(fullPath);
-    return this.firestore.collection(fullPath).snapshotChanges();
+    return (await this.firestore.collection(fullPath).get());
   }
 }

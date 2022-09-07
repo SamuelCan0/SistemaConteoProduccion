@@ -45,6 +45,7 @@ export class HistorialComponent implements OnInit {
     'rgba(0, 255, 127, 0.2)',
   ];
   colorBY:any[]=[
+    'rgb(255, 69, 0)',
     'rgb(0, 250, 154)',
     'rgb(127, 255, 212)',
     'rgb(221, 160, 221)',
@@ -52,6 +53,7 @@ export class HistorialComponent implements OnInit {
     'rgb(0, 255, 127)',
   ];
   colorY:any[]=[
+    'rgb(255, 69, 0, 0.2)',
     'rgba(0, 250, 154, 0.2)',
     'rgba(127, 255, 212, 0.2)',
     'rgba(221, 160, 221, 0.2)',
@@ -77,6 +79,7 @@ export class HistorialComponent implements OnInit {
   async ngOnInit() {
     await this.PforWeek();
     await this.PforMonth();
+    await this.delay(500);
     await this.PforYear();
   }
 
@@ -91,6 +94,9 @@ export class HistorialComponent implements OnInit {
       if(i>=0 && i<4){a+=result.date[i];}
       if(i==6){m+=result.date[i];}
       if(i>=8 && i<10){d+=result.date[i];}
+    }
+    if (parseInt(d)<10) {
+      d=d[1];
     }
     path.push('produccion_'+d+m+a);
     console.log(path);
@@ -228,7 +234,7 @@ export class HistorialComponent implements OnInit {
         mesAux.push(idDoc);
       }
       datos=await this.ms.getMaquinasMonth(mesAux);
-      await this.delay(1000);
+      await this.delay(800);
       let arrAux=[];
       let labelMes='';
       let finalData=[];
@@ -244,7 +250,7 @@ export class HistorialComponent implements OnInit {
       if(i==10){labelMes='Octubre'}
       if(i==11){labelMes='Noviembre'}
       if(i==12){labelMes='Diciembre'}
-      if(datos.length>1){
+      if(datos.length>0){
         this.dataA.labels.push(labelMes);
         console.log(datos);
         let dataOrder=(await this.reordenar(datos));
@@ -294,10 +300,10 @@ export class HistorialComponent implements OnInit {
       this.dataA.datasets.push({
                                 label:element[1],
                                 data:arrAux,borderWidth:2,
-                                backgroundColor:this.colorS[i],
-                                borderColor:this.colorBS[i],
-                                hoverBackgroundColor:this.colorBS[i],
-                                hoverBorderColor:this.colorBS[i]
+                                backgroundColor:this.colorY[i],
+                                borderColor:this.colorBY[i],
+                                hoverBackgroundColor:this.colorBY[i],
+                                hoverBorderColor:this.colorBY[i]
                               });
 
       }
