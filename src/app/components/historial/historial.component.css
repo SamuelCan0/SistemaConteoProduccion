@@ -63,6 +63,7 @@
   width: fit-content;
   display: flex;
   width: 35px;
+  margin: 5px;
   height: 35px;
   justify-content: center;
   align-items: center;

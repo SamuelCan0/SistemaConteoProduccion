@@ -57,10 +57,7 @@
   color: var(--clr);
 }
 
-.navigation ul li.active a .icon{
-  transform: translateY(-20px);
 
-}
 
 .navigation ul li a .text{
   position: absolute;
@@ -71,24 +68,15 @@
   opacity: 0;
 }
 
-.navigation ul li.active a .text{
-  opacity: 1;
-  transform: translateY(10px);
-}
 
-.navigation ul li.active a .text{
-  opacity: 1;
-  transform: translateY(10px);
-}
 
 .indicator{
   position: absolute;
   width: 70px;
-  height: 70px;
+  height: 10px;
   background: var(--green);
-  border-radius: 50%;
-  top: -50%;
-  border: 6px solid var(--text-white);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   transition: 0.5s;
 }
 

@@ -25,6 +25,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -95,7 +96,7 @@ const customNotifierOptions: NotifierOptions = {
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
   ],
-  providers: [],
+  providers: [{provide : LocationStrategy , useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

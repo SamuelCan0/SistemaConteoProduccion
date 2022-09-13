@@ -7,6 +7,9 @@
       <button class="btn-buscar btn" data-bs-toggle="offcanvas" href="#offcanvas">
         <i class='bx bx-search'></i>
       </button>
+      <button class="btn-buscar btn" data-bs-toggle="offcanvas" href="#offcanvas">
+        <i class='bx bxs-file-pdf'></i>
+      </button>
     </div>
     <ng-container *ngIf="isLoad; else elseTemplate">
 
@@ -58,6 +61,7 @@
 
     <div class="offcanvas offcanvas-end buscar" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
       <div class="offcanvas-header">
+        <button type="button" class="btn-close" aria-label="Close" data-bs-toggle="offcanvas" href="#offcanvas"></button>
         <h2 class="offcanvas-title" id="offcanvasExampleLabel">Buscar por Fecha</h2>
       </div>
       <div class="offcanvas-body">
