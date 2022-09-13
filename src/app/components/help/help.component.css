@@ -125,6 +125,16 @@
     margin: 15px;
   }
 
+  .fqa-img{
+    display: flex;
+    justify-content: center;
+  }
+
+  .accordion-img{
+    position: relative;
+    width: 220px;
+  }
+
   .content-accordion{
     margin: 0;
     padding: 5px;

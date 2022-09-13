@@ -105,21 +105,23 @@
 }
 
 .actions .btn-refresh{
-  color: rgb(255, 255, 255);
+  color: white;
   border-radius: 50%;
   width: fit-content;
   display: flex;
   width: 35px;
+  margin: 5px;
   height: 35px;
   justify-content: center;
-  cursor: pointer;
   align-items: center;
-  background-color: var(--green);
+  background-color: rgb(21, 67, 96);
   z-index: 1;
+  cursor: pointer;
 }
 
 @media (max-width: 550px){
   .table-container{
+    margin: 0;
     padding: 10px;
   }
 
