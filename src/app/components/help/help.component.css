@@ -4,6 +4,8 @@
   display: flex;
 }
 
+
+
 .content{
   border-radius: 15px;
   border: 1px solid var(--border-color);
@@ -28,7 +30,7 @@
 
 .content-accordion{
   margin-top: 35px;
-  margin-right: 50px;
+  padding-right: 50px;
   z-index: 1;
 }
 
@@ -110,6 +112,34 @@
   display: none;
 }
 
+
+@media screen and (max-width:400px){
+  .body{
+    width:100%;
+    justify-content: center;
+    display: flex;
+  }
+  .accordion{
+    width: auto;
+    height: fit-content;
+    margin: 15px;
+  }
+
+  .content-accordion{
+    margin: 0;
+    padding: 5px;
+  }
+
+  .question{
+    width: 100%;
+  }
+
+  .content{
+    margin-top: 10px;
+    width: 100%;
+  }
+
+}
 
 @media screen and (min-width:992px){
   .accordion{
