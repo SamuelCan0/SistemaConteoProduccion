@@ -44,6 +44,7 @@ body{
   --blur: blur(10px);
   --button-hover-color: hsla(0,0%,0%,0.3);
   --clr: #222327;
+  --color-buttons:rgb(21, 67, 96);
 
 
 }

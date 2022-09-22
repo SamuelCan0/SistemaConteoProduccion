@@ -10,12 +10,13 @@
    <ng-template #elseTemplate >
        <div class="actions">
          <button class="btn-refresh btn" type="button" (click)="refreshData()"><i class='bx bx-refresh' ></i></button>
+         <button class="btn-refresh btn" type="button" (click)="downloadPDF()"><i class='bx bxs-file-pdf'></i></button>
        </div>
      <div class="row tablas" id="graficas">
        <div class="col-md-6">
          <div class="grafica" id="grafica1">
            <h3 class="titulo-grafica text-center">Producción de Argollas</h3>
-           <canvas baseChart
+           <canvas baseChart id="grafica-argollas"
              [type]="'bar'"
              [legend]="true"
              [datasets]="chartDataA"

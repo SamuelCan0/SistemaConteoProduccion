@@ -17,7 +17,7 @@
         </thead>
         <tbody  *ngFor="let maquina of maquinas; index as i">
             <tr class="body-tabla">
-              <td class="td-more"><a href="" class="" data-bs-toggle="collapse" href="#{{maquina.id_m}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class='bx bx-plus'></i></a></td>
+              <td class="td-more"><a data-bs-toggle="collapse" href="#{{maquina.id_m}}" role="button"><i class='bx bx-plus'></i></a></td>
               <td class="td-id-m">{{maquina.id_m}}</td>
               <td class="">{{maquina.nombre}}</td>
               <ng-container *ngIf="maquina.estado; else elseTemplate">

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DateTime } from "luxon";
 import { MaquinasService } from 'src/app/services/maquinas.service';
 
+import jsPDF from 'jspdf';
+import * as htmlToImage from 'html-to-image';
+import autoTable from 'jspdf-autotable';
+
 @Component({
   selector: 'app-historial',
   templateUrl: './historial.component.html',
@@ -10,6 +14,7 @@ import { MaquinasService } from 'src/app/services/maquinas.service';
 
 
 export class HistorialComponent implements OnInit {
+  fechaBuscada:string='';
   semana:number=DateTime.local().weekNumber;
   mesesDataOrder:any[]=[];
   idDocsS:any[]=[];
@@ -76,6 +81,63 @@ export class HistorialComponent implements OnInit {
     this.isSearch=false;
   }
 
+  async downloadPDF(){
+
+    const fullPath=this.fechaBuscada;
+    var img:any;
+    var graficas = document.getElementById('grafica-buscar');
+    htmlToImage.toPng(graficas!)
+      .then(function(dataUrl){
+        img=new Image();
+        img.src=dataUrl;
+      })
+      .catch(function(error){
+        console.error('algo salio mal\nERROR: ', error);
+      });
+      await this.delay(2000);
+      let pdf=new jsPDF('p', 'px', 'a4');
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+
+      const widthRatio = pageWidth / img.width;
+      const heightRatio = pageHeight / img.height;
+      const ratio = widthRatio > heightRatio ? heightRatio : widthRatio;
+
+      const canvasWidth = img.width * ratio;
+      const canvasHeight = img.height * ratio;
+
+      const marginX = (pageWidth - canvasWidth) / 2;
+      const marginY = (pageHeight - canvasHeight) / 2;
+
+      let xOffset = (pdf.internal.pageSize.width / 2) - (pdf.getStringUnitWidth(fullPath)/2 );
+      var columns = ["Area","Producción"];
+      var datos:any[]=[];
+      let arrAux=[];
+      for (let index = 0; index < this.dataB.datasets.length; index++) {
+        arrAux=[];
+        const element1 = this.dataB.labels[index];
+        const element2 = this.dataB.datasets[index]['data'];
+        arrAux.push(element1);
+        arrAux.push(element2);
+        datos.push(arrAux);
+      }
+      console.log(datos);
+      pdf.setFontSize(20);
+      pdf.text(fullPath,xOffset,85,{'align':'center'});
+      pdf.setFontSize(16);
+      pdf.text('Producción de Argollas',marginX+canvasWidth*.12,125);
+      pdf.setFontSize(20);
+      pdf.addImage(img,'PNG', marginX+canvasWidth*.12, 140, canvasWidth*.75, canvasHeight*.75);
+      autoTable(pdf,{head:[columns],body:datos, startY:350,});
+      var logo=new Image();
+      logo.src='assets/img/log.jpg';
+      pdf.addImage(logo,'jpg',15,15,50,25);
+      var logoAlsan=new Image();
+      logoAlsan.src='assets/img/logo-alsan.jpg';
+      pdf.addImage(logoAlsan,'jpg',canvasWidth*.80,15,80,25);
+      pdf.save(fullPath);
+  }
+
 
 
   async ngOnInit() {
@@ -101,6 +163,7 @@ export class HistorialComponent implements OnInit {
       d=d[1];
     }
     path.push('produccion_'+d+m+a);
+    this.fechaBuscada='Producción de '+d+'/'+m+'/'+a;
     console.log(path);
     datos=await this.ms.getMaquinasWeek(path);
     await this.delay(2000);

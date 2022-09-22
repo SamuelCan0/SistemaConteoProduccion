@@ -138,7 +138,7 @@ header .image-text .header-text{
 }
 
 .sidebar li a:hover{
-  background: var(--green);
+  background: var(--color-buttons);
 }
 
 .sidebar li a:hover .icon,

@@ -7,9 +7,6 @@
       <button class="btn-buscar btn" data-bs-toggle="offcanvas" href="#offcanvas">
         <i class='bx bx-search'></i>
       </button>
-      <button class="btn-buscar btn" data-bs-toggle="offcanvas" href="#offcanvas">
-        <i class='bx bxs-file-pdf'></i>
-      </button>
     </div>
     <ng-container *ngIf="isLoad; else elseTemplate">
 
@@ -100,15 +97,18 @@
         <button class="btn-buscar btn" (click)="regresar()">
           <i class='bx bx-arrow-back'></i>
         </button>
+        <button class="btn-buscar btn" (click)="downloadPDF()">
+          <i class='bx bxs-file-pdf'></i>
+        </button>
       </div>
-      <h1>Produccion de {{fecha}}</h1>
+      <h1 class="titulo-fecha">Produccion de {{fecha}}</h1>
       <div class="content">
         <div class="graficas row">
           <div class="col-sm-1"></div>
           <div class="col-sm-10 ps">
             <h3 class="titulo-grafica">Produccion del Dia</h3>
             <div class="grafica">
-              <canvas baseChart
+              <canvas baseChart id="grafica-buscar"
                 [data]="dataB"
                 [type]="'bar'"
               >

@@ -92,7 +92,7 @@ h1{
   height: 35px;
   justify-content: center;
   align-items: center;
-  background-color: rgb(21, 67, 96);
+  background-color: var(--color-buttons);
   z-index: 1;
   cursor: pointer;
 }

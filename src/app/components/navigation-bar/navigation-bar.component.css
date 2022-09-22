@@ -74,7 +74,7 @@
   position: absolute;
   width: 70px;
   height: 5px;
-  background: var(--green);
+  background: var(--color-buttons);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   transition: 0.5s;
