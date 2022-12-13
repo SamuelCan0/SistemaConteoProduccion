@@ -10,7 +10,7 @@
    <ng-template #elseTemplate >
        <div class="actions">
          <button class="btn-refresh btn" type="button" (click)="refreshData()"><i class='bx bx-refresh' ></i></button>
-         <button class="btn-refresh btn" type="button" (click)="downloadPDF()"><i class='bx bxs-file-pdf'></i></button>
+         <button class="btn-refresh btn" type="button" (click)="downloadPDF()" hidden><i class='bx bxs-file-pdf'></i></button>
        </div>
      <div class="row tablas" id="graficas">
        <div class="col-md-6">
@@ -27,4 +27,19 @@
          <hr>
        </div>
      </div>
+     <div class="row tablas" id="graficas">
+      <div class="col-md-6">
+        <div class="grafica" id="grafica1">
+          <h3 class="titulo-grafica text-center">Producción de Gancho</h3>
+          <canvas baseChart id="grafica-gancho"
+            [type]="'bar'"
+            [legend]="true"
+            [datasets]="chartDataG"
+            [labels]="chartLabelsG"
+            >
+          </canvas>
+        </div>
+        <hr>
+      </div>
+    </div>
  </ng-template>

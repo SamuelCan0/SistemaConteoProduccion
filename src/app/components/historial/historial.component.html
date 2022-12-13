@@ -32,18 +32,7 @@
               </canvas>
             </div>
           </div>
-          <div class="col-sm-1"></div>
-          <div class="col-sm-10 pa">
-            <h3 class="titulo-grafica">Producción Anual</h3>
-            <div class="grafica">
-              <canvas baseChart
-                [data]="dataA"
-                [type]="'bar'"
-              >
-              </canvas>
-            </div>
-          </div>
-          <div class="col-sm-1"></div>
+
         </div>
         <div class="pie"></div>
       </div>
@@ -97,7 +86,7 @@
         <button class="btn-buscar btn" (click)="regresar()">
           <i class='bx bx-arrow-back'></i>
         </button>
-        <button class="btn-buscar btn" (click)="downloadPDF()">
+        <button class="btn-buscar btn" (click)="downloadPDF()" hidden>
           <i class='bx bxs-file-pdf'></i>
         </button>
       </div>

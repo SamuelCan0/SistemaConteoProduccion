@@ -28,6 +28,7 @@
   cursor: pointer;
   transition: 0.4s;
   border-radius: 15px;
+  margin: 25px;
 }
 
 .service:hover{

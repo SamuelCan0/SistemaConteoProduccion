@@ -89,6 +89,7 @@ export class MaquinasService {
         });
       }
     }
+    console.log(this.datos);
     return this.datos;
 
   }

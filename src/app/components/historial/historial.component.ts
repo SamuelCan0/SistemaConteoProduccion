@@ -142,9 +142,10 @@ export class HistorialComponent implements OnInit {
 
   async ngOnInit() {
     await this.PforWeek();
+    await this.delay(1000)
     await this.PforMonth();
-    await this.delay(500);
-    await this.PforYear();
+    await this.delay(1000);
+    //await this.PforYear();
   }
 
   async searchDate(result: { date: string; }){
@@ -154,9 +155,10 @@ export class HistorialComponent implements OnInit {
     let d='';
     let path=[];
     this.isSearch=true;
+    console.log(result);
     for (let i = 0; i < result.date.length; i++) {
       if(i>=0 && i<4){a+=result.date[i];}
-      if(i==6){m+=result.date[i];}
+      if(i==6 || (i==5 && result.date[5]!='0')){m+=result.date[i];}
       if(i>=8 && i<10){d+=result.date[i];}
     }
     if (parseInt(d)<10) {
@@ -190,7 +192,7 @@ export class HistorialComponent implements OnInit {
                                 hoverBackgroundColor:this.colorBS,
                                 hoverBorderColor:this.colorBS
                               });
-      this.delay(2000);
+      await this.delay(2000);
       this.isShow=true;
     }
 
@@ -219,8 +221,7 @@ export class HistorialComponent implements OnInit {
     }
     console.log(this.idDocsS);
     datos=await this.ms.getMaquinasWeek(this.idDocsS);
-    await this.delay(1000);
-    console.log(datos);
+    await this.delay(2000);
     let data=(await this.reordenar(datos));
 
     this.dataD.datasets=[];
@@ -235,7 +236,8 @@ export class HistorialComponent implements OnInit {
       }
       this.dataD.datasets.push({
                                 label:element[1],
-                                data:arrAux,borderWidth:2,
+                                data:arrAux,
+                                borderWidth:2,
                                 backgroundColor:this.colorS[i],
                                 borderColor:this.colorBS[i],
                                 hoverBackgroundColor:this.colorBS[i],
@@ -253,11 +255,13 @@ export class HistorialComponent implements OnInit {
       let idDoc='produccion_'+j+mes+year;
       this.idDocsM.push(idDoc)
     }
+    console.log(this.idDocsM);
     datos=await this.ms.getMaquinasMonth(this.idDocsM);
-    await this.delay(1000);
+    await this.delay(3000);
     let data=(await this.reordenar(datos));
-
+    console.log(data);
     let arrAux=[];
+    let arrLa
     this.dataS.labels=[];
     this.dataS.datasets=[];
     for (let j = 0; j < data.length; j++) {
@@ -272,8 +276,10 @@ export class HistorialComponent implements OnInit {
       }
       arrAux.push(suma);
     }
+
+
     this.dataS.datasets.push({
-                              label:'Producción',
+                              label:'Produccion',
                               data:arrAux,
                               borderWidth:2,
                               backgroundColor:this.colorM,
@@ -282,6 +288,7 @@ export class HistorialComponent implements OnInit {
                               hoverBorderColor:this.colorBM
                             });
 
+    this.isLoad=true;
   }
 
   async PforYear(){
@@ -298,8 +305,9 @@ export class HistorialComponent implements OnInit {
         let idDoc='produccion_'+j+i+year;
         mesAux.push(idDoc);
       }
+
       datos=await this.ms.getMaquinasMonth(mesAux);
-      await this.delay(800);
+      await this.delay(1000);
       let arrAux=[];
       let labelMes='';
       let finalData=[];

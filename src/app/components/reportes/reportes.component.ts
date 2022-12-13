@@ -17,13 +17,34 @@ export class ReportesComponent implements OnInit {
   isload=true;
 
   //--- configuracion de graficos --
-  data:any[]=[];
+  dataA:any[]=[];
   chartLabelsA:any[]=[];
 
 
   chartDataA = [
     {
-      data: this.data,
+      data: this.dataA,
+      label: 'Producción por maquina',
+      hoverBackgroundColor:['rgba(127, 255, 212, 0.2)'],
+      hoverBorderColor:['rgba(127, 255, 212, 0.2)'],
+      backgroundColor: [
+        'rgba(127, 255, 212, 0.2)',
+      ],
+      borderColor: [
+        'rgba(127, 255, 212)'
+      ],
+      borderWidth: 2,
+
+    }
+  ];
+
+  dataG:any[]=[];
+  chartLabelsG:any[]=[];
+
+
+  chartDataG = [
+    {
+      data: this.dataG,
       label: 'Producción por maquina',
       hoverBackgroundColor:['rgb(153, 102, 255)'],
       hoverBorderColor:['rgb(153, 102, 255)'],
@@ -46,18 +67,27 @@ export class ReportesComponent implements OnInit {
   constructor(private ms:MaquinasService) { }
 
   async ngOnInit() {
-    await this.getDataA('0');
+    await this.getDataA('1');
     await this.delay(500);
-    await this.getLabelsA('0');
-    await this.delay(3000);
+    await this.getLabelsA('1');
+    await this.delay(1000);
+    await this.getDataG('0');
+    await this.delay(500);
+    await this.getLabelsG('0');
+    await this.delay(2000);
     this.isload=false;
   }
 
 
  async refreshData(){
     this.isload=true;
-    this.getDataA('0');
-    this.getLabelsA('0');
+    await this.getDataA('1');
+    await this.delay(1000);
+    await this.getLabelsA('1');
+    await this.delay(1000);
+    await this.getDataG('0');
+    await this.delay(1000);
+    await this.getLabelsG('0');
     await this.delay(2000);
     this.isload=false;
   }
@@ -136,6 +166,18 @@ export class ReportesComponent implements OnInit {
   async getLabelsA(id:string){
     this.chartLabelsA=[];
     this.chartLabelsA=(await this.ms.getLabels(id));
+    console.log(this.chartLabelsA);
+
+  }
+
+  async getDataG(id:string){
+    this.chartDataG[0].data=[];
+    this.chartDataG[0].data=(await this.ms.getData(id));
+  }
+
+  async getLabelsG(id:string){
+    this.chartLabelsG=[];
+    this.chartLabelsG=(await this.ms.getLabels(id));
     console.log(this.chartLabelsA);
 
   }
